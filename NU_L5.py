@@ -37,17 +37,45 @@
 
 # урок 5, задание 3
 
-inputString1 = "компьютер"
-inputString2 = "компьютеризация"
+cats = {
+    "myCat":
+        {"name": "Kashtan",
+         "nose": "wet",
+         "tail": "fluffy",
+         "mustache": "long",
+         "tum": "soft"
+         },
+    "anotherCat":
+        {"name": "Murzik",
+         "nose": "dry",
+         "tail": "fluffy",
+         "mustache": "short",
+         "tum": "soft"
+         }
+}
+
 
 def compare(S1, S2):
     ngrams = [
-        S1[i:i+3] for i in range(len(S1))
+        S1[i:i + 3] for i in range(len(S1))
     ]
-    print(S1)
+
     count = 0
     for ngram in ngrams:
         count += S2.count(ngram)
-    # return count/max(len(S1), len(S2))
+    return count / max(len(S1), len(S2))
 
-# print(compare(inputString1, inputString2))
+
+# сюда вводим искомое значение, например set
+inputValue = "set"
+
+
+def searchInArray(input, array):
+    for i in array:
+        for j in array.get(i):
+            if compare(array.get(i).get(j), input) >= 0.50:
+                print("Найдено с коэффициентом похожести %f" % compare(array.get(i).get(j), input), "для котика",
+                      array.get(i))
+
+
+searchInArray(inputValue, cats)
