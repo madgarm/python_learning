@@ -26,9 +26,14 @@ class Cat:
 
     def __eq__(self, obj):
         if type(obj) == str:
+            count = 0
             for x in [self.name, self.breed, self.nose, self.tail, self.mustache, self.tum]:
                 if compare(obj, x) >= 0.5:
-                    return True
+                    count += 1
+            if count > 0:
+                return True
+            else:
+                return False
 
 
 Kashtan = Cat("Kashtan", "abyssinian", "wet", "fluffy", "long", "soft")
