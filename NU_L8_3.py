@@ -28,8 +28,7 @@ while question != "Стоп":
             print("Да") if a == 1 else print("Нет")
             questions[question] = a
         else:
-            temp = questions.copy()
-            for i in temp.keys():
+            for i in questions.keys():
                 if compare(question, i) >= 0.5:
                     x += 1
             if x > 0:
